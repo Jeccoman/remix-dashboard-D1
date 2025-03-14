@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { type LinksFunction, type MetaFunction } from "@remix-run/cloudflare";
+import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import {
 	useFetchers,
 	useTransition,
@@ -47,11 +47,11 @@ export default function App() {
 }
 
 function useNProgress() {
-	let transition = useTransition();
+	const transition = useTransition();
 
-	let fetchers = useFetchers();
-	let state = useMemo(() => {
-		let states = [
+	const fetchers = useFetchers();
+	const state = useMemo(() => {
+		const states = [
 			transition.state,
 			...fetchers.map((fetcher) => fetcher.state),
 		];
